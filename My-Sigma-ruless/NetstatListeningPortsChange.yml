@@ -1,0 +1,20 @@
+description:
+Detects changes in netstat's listened ports status (new port opened or
+closed). // Test by Tzourmanas
+detection:
+condition: selection
+selection:
+event_id: 4739
+fields:
+- port
+- protocol
+id: 100008
+level: medium
+logsource:
+product: linux
+service: netstat
+status: experimental
+tags:
+- attack.persistence
+- pci_dss.10.2.7
+title: Listened Ports Status Changed

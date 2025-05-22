@@ -1,0 +1,18 @@
+description: Detects nmap scanning activity. // Test by Tzourmanas
+detection:
+condition: selection
+selection:
+event_id: 4627
+fields:
+- src_ip
+- dst_ip
+- port
+id: 100007
+level: medium
+logsource:
+product: network
+status: experimental
+tags:
+- attack.reconnaissance
+attack.t1046
+title: Nmap Scanning Detected

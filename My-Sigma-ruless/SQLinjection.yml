@@ -1,0 +1,42 @@
+description:
+Detects attempts to exploit SQL injection vulnerabilities based on patterns
+in URLs. // Test by Tzourmanas
+detection:
+condition: selection
+event_id: 31103
+url:
+- "select "
+- select+
+- "insert "
+- " from "
+- " where "
+- "union "
+- union+
+- where+
+- null,null
+- xp_cmdshell
+fields:
+- url
+- event_id
+id: 100009
+level: high
+logsource:
+product: webserver
+service: http
+status: experimental
+tags:
+- attack.sql_injection
+- attack.t1190
+- pci_dss.6.5
+- pci_dss.11.4
+- gdpr_IV_35.7.d
+- nist_800_53_SA.11
+- nist_800_53_SI.4
+- tsc_CC6.6
+- tsc_CC7.1
+- tsc_CC8.1
+- tsc_CC6.1
+- tsc_CC6.8
+- tsc_CC7.2
+- tsc_CC7.3
+title: SQL Injection Attempt

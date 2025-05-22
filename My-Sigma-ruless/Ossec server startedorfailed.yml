@@ -1,0 +1,27 @@
+description: 'This rule detects specific Ossec server events, including server start
+and authentication failures.
+- Event ID 502 indicates Ossec server started or authentication failed // Test by
+Tzourmanas
+'
+detection:
+condition: selection
+selection:
+event_id: 502
+fields:
+- event_id
+- message
+- description
+id: f4d9c6e3-18c7-4d2e-9c45-2e4f6f52a6b7
+level: high
+logsource:
+product: ossec
+status: experimental
+tags:
+- pci_dss_10.6.1
+- gpg13_10.1
+- gdpr_IV_35.7.d
+- hipaa_164.312.b
+- nist_800_53_AU.6
+- tsc_CC7.2
+- tsc_CC7.3
+title: Ossec Server Events

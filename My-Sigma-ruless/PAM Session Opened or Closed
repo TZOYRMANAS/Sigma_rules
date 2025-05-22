@@ -1,0 +1,21 @@
+description: Detects when a PAM login session is opened or closed. // Test by Tzourmanas
+detection:
+condition: selection_open or selection_closed
+selection_closed:
+event_id: 4649
+selection_open:
+event_id: 4648
+fields:
+- user
+- src_ip
+id: 100004100005
+level: medium
+logsource:
+product: linux
+service: pam
+status: experimental
+tags:
+- attack.initial_access
+- attack.t1078
+- pci_dss.10.2.5
+title: PAM Session Opened or Closed

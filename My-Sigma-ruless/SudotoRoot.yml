@@ -1,0 +1,20 @@
+description: Detects when sudo is used to execute commands as root. //Test by Tzourmanas
+detection:
+condition: selection
+selection:
+event_id: 1016
+fields:
+- user
+- command
+- src_ip
+id: 100003
+level: high
+logsource:
+product: linux
+service: sudo
+status: experimental
+tags:
+- attack.privilege_escalation
+- attack.t1169
+- pci_dss.10.2.5
+title: Successful Sudo to Root

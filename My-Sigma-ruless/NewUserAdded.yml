@@ -1,0 +1,19 @@
+description: Detects the addition of a new user to the system. // Test by Tzourmanas
+detection:
+condition: selection
+selection:
+event_id: 4720
+fields:
+- user
+- src_ip
+id: 100006
+level: high
+logsource:
+product: linux
+service: useradd
+status: experimental
+tags:
+- attack.persistence
+- attack.t1136
+- pci_dss.10.2.7
+title: New User Added

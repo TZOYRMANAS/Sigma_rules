@@ -1,0 +1,29 @@
+description:
+Detects failed or successful SSH authentication attempts. // Test by
+Tzourmanas
+detection:
+condition: selection_failure or selection_success
+selection_failure:
+event_id:
+- 4625
+- 4719
+selection_success:
+event_id: 4624
+fields:
+- src_ip
+- user
+- authentication_method
+id: 100001100002
+level: medium
+logsource:
+product: linux
+service: sshd
+status: experimental
+tags:
+- attack.bruteforce
+- attack.t1110
+- attack.privilege_escalation
+- attack.t1078
+- pci_dss.10.2.4
+- pci_dss.10.2.5
+title: SSH Authentication Failure or Success
